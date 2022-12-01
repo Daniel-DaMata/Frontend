@@ -27,8 +27,16 @@ carregarProdutos(): void{
  })
 }
 
+deletar(produto: IProduto): void{
+  this.produtosService.excluir(produto.id!).subscribe(() =>{
+    this.produtosService.exibirMensagem(
+      'SISTEMA',
+      `${produto.nome} foi excluido com sucesso!`,
+      'toast-error'
+    );
+    this.carregarProdutos();
+  });
 
-
-
+}
 
 }
